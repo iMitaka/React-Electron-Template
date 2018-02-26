@@ -1,10 +1,9 @@
 'use strict';
 
 // Import parts of electron to use
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu, Tray } = require('electron');
 const path = require('path')
 const url = require('url')
-
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
@@ -24,6 +23,8 @@ function createWindow() {
     minWidth: 800,
     minHeight: 600
   });
+
+  mainWindow.setMenu(null)
 
   // and load the index.html of the app.
   let indexPath;

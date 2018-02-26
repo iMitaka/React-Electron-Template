@@ -5,7 +5,7 @@ import Routes from '../routes/routes'
 class App extends React.Component {
   render() {
     return (
-      <div className="container">
+      <div className="container-background">
         <Routes />
       </div>
     );
