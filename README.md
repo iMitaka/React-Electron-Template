@@ -1,5 +1,4 @@
-# Electron + React Starter Kit
-_Electron, React, Webpack -- Modern and up-to-date_
+# Electron/React
 
 ### To get started:
 * Run `npm install`
