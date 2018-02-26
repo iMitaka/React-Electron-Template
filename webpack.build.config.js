@@ -21,6 +21,12 @@ module.exports = {
   module: {
     rules: [
       {
+        // For all .css files in node_modules
+        test: /\.css$/,
+        include: /node_modules/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
