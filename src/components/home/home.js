@@ -6,7 +6,7 @@ class Home extends React.Component {
     return (
       <div>
         <h1>Hello, Home!</h1>
-        <Link to="/contact">Contacts</Link>
+        <Link className="btn btn-success" to="/contact">Contacts</Link>
       </div>
     );
   }

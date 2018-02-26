@@ -27,13 +27,13 @@ function createWindow() {
     indexPath = url.format({
       protocol: 'http:',
       host: 'localhost:8080',
-      pathname: 'index.html',
+      pathname: '/',
       slashes: true
     });
   } else {
     indexPath = url.format({
       protocol: 'file:',
-      pathname: path.join(__dirname, 'dist', 'index.html'),
+      pathname: path.join(__dirname, 'dist', '/'),
       slashes: true
     });
   }
