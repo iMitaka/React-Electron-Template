@@ -1,7 +1,7 @@
 'use strict';
 
 // Import parts of electron to use
-const { app, BrowserWindow, Menu, Tray } = require('electron');
+const { app, BrowserWindow } = require('electron');
 const path = require('path')
 const url = require('url')
 // Keep a global reference of the window object, if you don't, the window will
@@ -23,6 +23,10 @@ function createWindow() {
     minWidth: 800,
     minHeight: 600,
     // frame: false
+    webPreferences: {
+      webSecurity: false,
+      allowRunningInsecureContent: true
+     }
   });
 
   mainWindow.setMenu(null)
