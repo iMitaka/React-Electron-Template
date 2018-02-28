@@ -1,5 +1,6 @@
 @import './styles/container-styles.css';
 @import './styles/text-styles.css';
+@import './styles/button-styles.css';
 
 .row {
     margin: 0 !important

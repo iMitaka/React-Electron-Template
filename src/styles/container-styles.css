@@ -37,8 +37,3 @@
     -webkit-user-select: none;
     -webkit-app-region: drag;
 }
-
-.header-conatiner button {
-    -webkit-app-region: no-drag;
-    margin-left: 10px
-}
