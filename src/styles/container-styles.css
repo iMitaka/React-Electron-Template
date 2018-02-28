@@ -1,7 +1,5 @@
 .container-background {
-    background-color: #3c3d3f;
     height: 100vh;
-    color: white;
     padding-bottom: 15px
 }
 
@@ -34,6 +32,5 @@
     border-bottom-left-radius: 35px;
     padding: 5px;
     background-color: black;
-    -webkit-user-select: none;
-    -webkit-app-region: drag;
+    -webkit-app-region: drag
 }
