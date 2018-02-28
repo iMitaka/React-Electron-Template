@@ -1,7 +1,7 @@
 'use strict';
 
 // Import parts of electron to use
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Tray, Menu } = require('electron');
 const path = require('path')
 const url = require('url')
 // Keep a global reference of the window object, if you don't, the window will
@@ -22,12 +22,12 @@ function createWindow() {
     show: false,
     minWidth: 800,
     minHeight: 600,
-    icon:'./favicon.ico',
+    icon: './favicon.ico',
     frame: false,
     webPreferences: {
       webSecurity: false,
       allowRunningInsecureContent: true
-     }
+    }
   });
 
   mainWindow.setMenu(null)
@@ -57,6 +57,36 @@ function createWindow() {
     if (dev) {
       mainWindow.webContents.openDevTools();
     }
+
+    // Add Window to Tray
+    var appIcon = new Tray('./favicon.ico')
+    appIcon.setToolTip('Jarvis Edge')
+
+    appIcon.on('click', function () {
+      if (mainWindow.isVisible()) {
+        mainWindow.hide()
+      } else {
+        mainWindow.show()
+      }
+    })
+
+    var contextMenu = Menu.buildFromTemplate([
+      {
+        label: 'Show App', click: function () {
+          mainWindow.show()
+        }
+      },
+      {
+        label: 'Quit', click: function () {
+          app.isQuiting = true
+          app.quit()
+        }
+      }
+    ])
+
+    appIcon.setContextMenu(contextMenu)
+
+    appIcon.setHighlightMode('always')
   });
 
   // Emitted when the window is closed.
@@ -89,3 +119,5 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+
