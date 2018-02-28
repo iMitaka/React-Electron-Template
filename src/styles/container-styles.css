@@ -2,5 +2,43 @@
     background-color: #3c3d3f;
     height: 100vh;
     color: white;
-    padding: 15px
+    padding-bottom: 15px
+}
+
+.bitcoin-container {
+    border-radius: 25px;
+    background: #FF9900;
+    padding: 2vh;
+    cursor: pointer
+}
+
+.ethereum-container {
+    border-radius: 25px;
+    background: #dfe3ee;
+    padding: 2vh;
+    cursor: pointer
+}
+
+.dollar-container {
+    border-radius: 25px;
+    background: #a6cc70;
+    padding: 2vh;
+    cursor: pointer
+}
+
+.center-conatiner {
+    padding-top: 25vh
+}
+
+.header-conatiner {
+    border-bottom-left-radius: 35px;
+    padding: 5px;
+    background-color: black;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+}
+
+.header-conatiner button {
+    -webkit-app-region: no-drag;
+    margin-left: 10px
 }

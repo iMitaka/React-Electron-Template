@@ -22,7 +22,8 @@ function createWindow() {
     show: false,
     minWidth: 800,
     minHeight: 600,
-    // frame: false
+    icon:'./favicon.ico',
+    frame: false,
     webPreferences: {
       webSecurity: false,
       allowRunningInsecureContent: true
