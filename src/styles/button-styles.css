@@ -1,5 +1,9 @@
 .header-conatiner button {
     -webkit-app-region: no-drag;
     margin-left: 10px;
-    font-size: 75%
+    font-size: 65%
+}
+
+.header-conatiner button.close-button:hover {
+    background-color: brown
 }

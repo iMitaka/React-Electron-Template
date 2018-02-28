@@ -29,9 +29,15 @@ class Header extends React.Component {
                 </div>
                 <div className="col-md-8">
                     <div className="text-right">
-                        <button className="btn btn-dark" onClick={this.minimizeWindow}><i className="fas fa-window-minimize"></i></button>
-                        <button className="btn btn-dark" onClick={this.maximizeWindow}><i className="far fa-window-maximize"></i></button>
-                        <button className="btn btn-dark" onClick={this.closeWindow}><i className="fas fa-times"></i></button>
+                        <button className="btn btn-dark" onClick={this.minimizeWindow}>
+                            <i className="fas fa-window-minimize"></i>
+                        </button>
+                        <button className="btn btn-dark" onClick={this.maximizeWindow}>
+                            <i className="far fa-window-maximize"></i>
+                        </button>
+                        <button className="btn btn-dark close-button" onClick={this.closeWindow}>
+                            <i className="fas fa-times"></i>
+                        </button>
                     </div>
                 </div>
             </div>
