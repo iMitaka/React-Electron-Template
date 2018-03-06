@@ -34,3 +34,13 @@
     background-color: black;
     -webkit-app-region: drag
 }
+
+.redeem-code-conatiner {
+    padding-top: 10vh
+}
+
+.button-container {
+    border-radius: 25px;
+    padding: 2vh;
+    cursor: pointer
+}
