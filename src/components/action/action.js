@@ -26,8 +26,8 @@ class Action extends React.Component {
 
             const ticker = await new ccxt.binance().fetchTicker(this.props.match.params.symbol + '/USDT')
 
-            const buy = ticker.bid
-            const sell = ticker.ask
+            const buy = ticker.ask
+            const sell = ticker.bid
             const avarage = (ticker.last + ticker.open) / 2
 
             this.setState({
