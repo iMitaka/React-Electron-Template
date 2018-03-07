@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CurrencyButton from '../../shared/components/currentcy-button'
 import PageTitle from '../../shared/components/page-title'
+import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
   currencyHandler(currency) {
@@ -41,7 +42,7 @@ class Home extends React.Component {
         </div>
         <div className="row redeem-code-conatiner">
           <div className="col-lg-12 text-center">
-            <button className="btn-lg btn-info"><strong>REDEEM CODE</strong></button>
+            <Link to="/redeem-code" className="btn-lg btn-info"><strong>REDEEM CODE</strong></Link>
           </div>
         </div>
       </div>
