@@ -1,5 +1,5 @@
 {
-  "name": "electron-react-app",
+  "productName": "Jarvis Edge",
   "version": "0.7.0",
   "license": "MIT",
   "main": "main.js",
@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js",
     "build": "webpack --config webpack.build.config.js",
     "package": "webpack --config webpack.build.config.js",
-    "postpackage": "electron-packager ./ --out=./builds"
+    "postpackage": "electron-packager --icon=build/favicon.ico ./ --out=./builds"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

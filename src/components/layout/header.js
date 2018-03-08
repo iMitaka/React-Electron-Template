@@ -4,8 +4,8 @@ const remote = require('electron').remote;
 class Header extends React.Component {
     closeWindow() {
         var window = remote.getCurrentWindow();
-        window.minimize();
-        // window.hide();
+        // window.minimize();
+        window.hide();
         // window.close();
     }
 

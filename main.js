@@ -4,6 +4,7 @@
 const { app, BrowserWindow, Tray, Menu } = require('electron');
 const path = require('path')
 const url = require('url')
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
@@ -22,7 +23,7 @@ function createWindow() {
     show: false,
     minWidth: 800,
     minHeight: 600,
-    icon: './favicon.ico',
+    icon: path.join(__dirname, 'build', 'favicon.ico'),
     frame: false,
     webPreferences: {
       webSecurity: false,
@@ -44,7 +45,7 @@ function createWindow() {
   } else {
     indexPath = url.format({
       protocol: 'file:',
-      pathname: path.join(__dirname, 'dist', '/'),
+      pathname: path.join(__dirname, 'dist', 'index.html'),
       slashes: true
     });
   }
@@ -59,7 +60,7 @@ function createWindow() {
     }
 
     // Add Window to Tray
-    var appIcon = new Tray('./favicon.ico')
+    var appIcon = new Tray(path.join(__dirname, 'build', 'favicon.ico'))
     appIcon.setToolTip('Jarvis Edge')
 
     appIcon.on('click', function () {
@@ -111,6 +112,23 @@ app.on('window-all-closed', () => {
     app.quit();
   }
 });
+
+app.on('before-quit', () => {
+    mainWindow.removeAllListeners('close');
+    mainWindow.close();
+});
+
+const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
+  // Someone tried to run a second instance, we should focus our window.
+  if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore()
+      mainWindow.focus()
+  }
+})
+
+if (isSecondInstance) {
+  app.quit()
+}
 
 app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
