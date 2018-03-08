@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+const UNDO_SYMBOL = '<<'
+
 class NumberInput extends React.Component {
     constructor(props) {
         super(props)
@@ -13,7 +15,7 @@ class NumberInput extends React.Component {
     }
 
     componentDidMount() {
-        let inputNumbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '*', '0', '<<']
+        let inputNumbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '*', '0', UNDO_SYMBOL]
         let inputButtons = inputNumbers.map((number, index) => {
             return (
                 <div key={index} className="col-sm-4" style={{ paddingBottom: '2vh' }}>
@@ -32,7 +34,7 @@ class NumberInput extends React.Component {
 
     handleNumberChange(number) {
         let code = this.state.code
-        if (number == '<<') {
+        if (number == UNDO_SYMBOL) {
             code = code.slice(0, -1)
         } else {
             code += number

@@ -42,7 +42,7 @@ class Action extends React.Component {
 
     render() {
         let content = (
-            <div className="col-sm-12 text-center">
+            <div className="col-lg-12 text-center">
                 <div><h4><strong>Please, wait a moment...</strong></h4></div>
             </div>
         )
@@ -84,7 +84,7 @@ class Action extends React.Component {
         return (
             <div>
                 <div className="row" style={{ paddingTop: 40 }}>
-                    <div className="col-lg-2">
+                    <div className="col-sm-2">
                         <button className="btn-lg btn-secondary" onClick={this.backButtonClick} style={{ width: '50%' }}><i className="fas fa-arrow-circle-left"></i></button>
                     </div>
                 </div>
