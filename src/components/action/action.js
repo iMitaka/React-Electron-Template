@@ -3,6 +3,8 @@ import ccxt from 'ccxt'
 import PageTitle from '../../shared/components/page-title'
 import { Link } from 'react-router-dom'
 
+const exchange = new ccxt.binance()
+
 class Action extends React.Component {
     constructor(props) {
         super(props)
@@ -22,17 +24,13 @@ class Action extends React.Component {
 
     getTicker() {
         (async () => {
-            const exchange = new ccxt.binance()
+            let ticker = await exchange.fetchTicker(this.props.match.params.symbol + '/USDT')
 
-            const ticker = await new ccxt.binance().fetchTicker(this.props.match.params.symbol + '/USDT')
-
-            const buy = ticker.ask
-            const sell = ticker.bid
-            const avarage = (ticker.last + ticker.open) / 2
+            let avarage = (ticker.last + ticker.open) / 2
 
             this.setState({
-                buyPrice: buy.toFixed(2),
-                sellPrice: sell.toFixed(2),
+                buyPrice: ticker.ask.toFixed(2),
+                sellPrice: ticker.bid.toFixed(2),
                 avaragePrice: avarage.toFixed(2)
             })
         })()
