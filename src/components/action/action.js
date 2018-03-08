@@ -42,7 +42,7 @@ class Action extends React.Component {
 
     render() {
         let content = (
-            <div className="col-lg-12 text-center">
+            <div className="col-sm-12 text-center">
                 <div><h4><strong>Please, wait a moment...</strong></h4></div>
             </div>
         )

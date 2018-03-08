@@ -22,7 +22,7 @@ function createWindow() {
     height: 768,
     show: false,
     minWidth: 800,
-    minHeight: 600,
+    minHeight: 800,
     icon: path.join(__dirname, 'build', 'favicon.ico'),
     frame: false,
     webPreferences: {
@@ -64,11 +64,7 @@ function createWindow() {
     appIcon.setToolTip('Jarvis Edge')
 
     appIcon.on('click', function () {
-      if (mainWindow.isVisible()) {
-        mainWindow.hide()
-      } else {
-        mainWindow.show()
-      }
+      mainWindow.show()
     })
 
     var contextMenu = Menu.buildFromTemplate([
@@ -114,15 +110,15 @@ app.on('window-all-closed', () => {
 });
 
 app.on('before-quit', () => {
-    mainWindow.removeAllListeners('close');
-    mainWindow.close();
+  mainWindow.removeAllListeners('close');
+  mainWindow.close();
 });
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
   // Someone tried to run a second instance, we should focus our window.
   if (mainWindow) {
-      if (mainWindow.isMinimized()) mainWindow.restore()
-      mainWindow.focus()
+    if (mainWindow.isMinimized()) mainWindow.restore()
+    mainWindow.focus()
   }
 })
 

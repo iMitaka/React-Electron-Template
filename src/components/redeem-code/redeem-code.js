@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import NumberInput from '../../shared/components/number-input'
 
 class RedeemCode extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      inputButtons: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '*', '0', '<<'],
       code: ''
     }
 
     this.backButtonClick = this.backButtonClick.bind(this)
+    this.validate = this.validate.bind(this)
   }
 
   backButtonClick() {
@@ -17,34 +18,20 @@ class RedeemCode extends React.Component {
   }
 
   handleNumberChange(number) {
-    let code = this.state.code
-    if (number == '<<') {
-      code = code.slice(0, -1)
-    } else {
-      code += number
-    }
-
     this.setState({
-      code: code
+      code: number
     })
   }
 
-  render() {
-    let numberInputButtons = this.state.inputButtons.map((number, index) => {
-      return (
-        <div key={index} className="col-sm-4" style={{ paddingBottom: '2vh' }}>
-          <button
-            className="btn-lg btn-secondary"
-            style={{ width: '100%' }}
-            onClick={() => this.handleNumberChange(number)}><strong>{number}</strong></button>
-        </div>
-      )
-    })
+  validate() {
+    console.log(this.state.code)
+  }
 
+  render() {
     return (
       <div>
         <div className="row" style={{ paddingTop: 40 }}>
-          <div className="col-lg-2">
+          <div className="col-sm-2">
             <button className="btn-lg btn-secondary" onClick={this.backButtonClick} style={{ width: '50%' }}><i className="fas fa-arrow-circle-left"></i></button>
           </div>
         </div>
@@ -58,26 +45,14 @@ class RedeemCode extends React.Component {
           </div>
         </div>
         <br />
-        <div className="row">
-          <div className="col-md-6 offset-md-3 text-center">
-            <div>
-              <input className="form-control" disabled style={{ textAlign: 'center', fontWeight: 'bold' }} value={this.state.code}></input>
-            </div>
-          </div>
-        </div>
-        <hr />
-        <div className="row">
-          <div className="col-md-6 offset-md-3 text-center">
-            <div className="row">
-              {numberInputButtons}
-            </div>
-          </div>
-        </div>
+        <NumberInput
+          onNumberChange={(number) => this.handleNumberChange(number)}
+        />
         <hr />
         <div className="row">
           <div className="col-lg-12 text-center">
             <div>
-              <button className="btn-lg btn-success"><strong>VALIDTE CODE</strong></button>
+              <button className="btn-lg btn-success" onClick={this.validate}><strong>VALIDTE CODE</strong></button>
             </div>
           </div>
         </div>
