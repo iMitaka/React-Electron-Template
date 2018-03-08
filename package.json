@@ -1,4 +1,5 @@
 {
+  "name": "react-electron",
   "productName": "Jarvis Edge",
   "version": "0.7.0",
   "license": "MIT",
