@@ -8,7 +8,7 @@ const url = require('url')
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
-
+let appIcon;
 // Keep a reference for dev mode
 let dev = false;
 if (process.defaultApp || /[\\/]electron-prebuilt[\\/]/.test(process.execPath) || /[\\/]electron[\\/]/.test(process.execPath)) {
@@ -60,14 +60,14 @@ function createWindow() {
     }
 
     // Add Window to Tray
-    var appIcon = new Tray(path.join(__dirname, 'build', 'favicon.ico'))
+    appIcon = new Tray(path.join(__dirname, 'build', 'favicon.ico'))
     appIcon.setToolTip('Jarvis Edge')
 
     appIcon.on('click', function () {
       mainWindow.show()
     })
 
-    var contextMenu = Menu.buildFromTemplate([
+    const contextMenu = Menu.buildFromTemplate([
       {
         label: 'Show App', click: function () {
           mainWindow.show()
