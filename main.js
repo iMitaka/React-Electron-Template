@@ -83,7 +83,7 @@ function createWindow() {
 
     appIcon.setContextMenu(contextMenu)
 
-    appIcon.setHighlightMode('always')
+    // appIcon.setHighlightMode('always')
   });
 
   // Emitted when the window is closed.
