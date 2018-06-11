@@ -25,7 +25,7 @@ function createWindow() {
     minHeight: 800,
     icon: path.join(__dirname, 'build', 'favicon.ico'),
     frame: false,
-    fullscreen: true,
+    fullscreen: false,
     webPreferences: {
       webSecurity: false,
       allowRunningInsecureContent: true

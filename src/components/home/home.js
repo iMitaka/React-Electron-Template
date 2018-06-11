@@ -4,14 +4,6 @@ import PageTitle from '../../shared/components/page-title'
 import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      delay: 300,
-      result: 'No result',
-    }
-    this.handleScan = this.handleScan.bind(this)
-  }
 
   currencyHandler(currency) {
     let symbol;
