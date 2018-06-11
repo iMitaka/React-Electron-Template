@@ -42,6 +42,10 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
+    client.call('startSession', [], function (err, result) {
+      console.log(JSON.stringify(result, null, 4));
+    });
+
     client.call('getPairs', [], function (err, result) {
       console.log(JSON.stringify(result, null, 4));
     });
